@@ -2,7 +2,7 @@ name: Egg
 
 flownet:
   data_source:
-    input_case: ../input_model/EGG_MODEL_ECL
+    input_case: ../input_model/egg/NORNE_ATW2013
   phases:
     - oil
     - water
@@ -16,14 +16,13 @@ flownet:
   training_set_fraction: 0.8 # Fraction of observations (from 0 to 1) to use as training data
   fault_tolerance: 0.1
 ert:
-  static_include_files: ../input_model/
+  static_include_files: ./egg_static
   realizations:
     num_realizations: 250
     required_success_percent: 80
     max_runtime: 600
   queue:
     system: LOCAL
-    name: mr
     max_running: 4
   ensemble_weights:
     - 4
