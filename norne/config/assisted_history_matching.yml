@@ -2,8 +2,25 @@ name: Norne
 
 flownet:
   data_source:
-    input_case: ../input_model/norne/NORNE_ATW2013
-    concave_hull: True
+    simulation:
+      input_case: ../input_model/norne/NORNE_ATW2013
+      vectors:
+        WTHP:
+          rel_error: 0.05
+          min_error: 5
+        WBHP:
+          rel_error: 0.05
+          min_error: 10
+        WOPR:
+          rel_error: 0.1
+          min_error: 50
+        WGPR:
+          rel_error: 0.1
+          min_error: 100000
+        WWPR:
+          rel_error: 0.1
+          min_error: 50
+    concave_hull: true
   phases:
     - oil
     - gas
@@ -18,7 +35,7 @@ flownet:
   hull_factor: 1.2
   random_seed: 123456
   perforation_handling_strategy: bottom_point
-  fast_pyscal: True
+  fast_pyscal: true
   training_set_end_date: 2005-01-31 #YYYY-MM-DD. If defined training set fraction is calculated from this date
   fault_tolerance: 0.00001
   max_distance_fraction: 0.15
@@ -62,7 +79,7 @@ model_parameters:
   fault_mult:
     min: 0.0001
     max: 1
-    loguniform: True
+    loguniform: true
   relative_permeability:
     scheme: global
     swirr:
@@ -118,3 +135,4 @@ model_parameters:
     goc_depth:
       min: 2575
       max: 2600
+
